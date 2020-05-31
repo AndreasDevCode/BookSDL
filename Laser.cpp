@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "CircleComponent.h"
 #include "Asteroid.h"
+
 Laser::Laser(Game* game)
 	:
 	Actor(game),
@@ -34,7 +35,6 @@ void Laser::UpdateActor(float dt)
 	{
 		for (auto ast : GetGame()->GetAsteroids())
 		{
-			/*
 			if (Intersect(*mCircle, *(ast->GetCircle())))
 			{
 				// The first asteroid we intersect with,
@@ -43,7 +43,6 @@ void Laser::UpdateActor(float dt)
 				ast->SetState(EDead);
 				break;
 			}
-			*/
 		}
 	}
 }

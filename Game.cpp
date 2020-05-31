@@ -12,6 +12,7 @@ Game::Game()
 	, mRenderer(nullptr)
 	, mIsRunning(true)
 	, mUpdatingActors(false)
+
 {
 
 }

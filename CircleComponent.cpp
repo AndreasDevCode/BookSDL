@@ -15,7 +15,7 @@ float CircleComponent::GetRadius() const
 {
 	return mRadius;
 }
-bool Intersect(const CircleComponent& a, CircleComponent& b)
+bool Intersect(const CircleComponent& a, const CircleComponent& b)
 {
 	Vector2 diff = a.GetCenter() - b.GetCenter();
 	float distSq = diff.LengthSq();

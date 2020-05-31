@@ -5,9 +5,10 @@ int main(int argc, char** argv)
 {
 	Game game;
 	bool sucess = game.Initialize();
-	while (sucess)
+	if(sucess)
 	{
 		game.RunLoop();
+		
 	}
 	game.Shutdown();
 

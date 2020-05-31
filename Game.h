@@ -1,19 +1,25 @@
-#pragma once
+// ----------------------------------------------------------------
+// From Game Programming in C++ by Sanjay Madhav
+// Copyright (C) 2017 Sanjay Madhav. All rights reserved.
+// 
+// Released under the BSD License
+// See LICENSE in root directory for full details.
+// ----------------------------------------------------------------
 
+#pragma once
 #include "SDL.h"
 #include <unordered_map>
-#include <vector>
 #include <string>
+#include <vector>
+
 class Game
 {
-
 public:
 	Game();
 	bool Initialize();
 	void RunLoop();
 	void Shutdown();
 
-	//Adding and removing methods for different enteties in the game
 	void AddActor(class Actor* actor);
 	void RemoveActor(class Actor* actor);
 
@@ -22,32 +28,36 @@ public:
 	
 	SDL_Texture* GetTexture(const std::string& fileName);
 
-	// Specific for asteroids
-	void AddAsteroids(class Asteroid* ast);
-	void RemoveAsteroids(class Asteroid* ast);
-	std::vector<class Asteroid*> GetAsteroids() { return mAsteroids; }
+	// Game-specific (add/remove asteroid)
+	void AddAsteroid(class Asteroid* ast);
+	void RemoveAsteroid(class Asteroid* ast);
+	std::vector<class Asteroid*>& GetAsteroids() { return mAsteroids; }
 private:
 	void ProcessInput();
 	void UpdateGame();
 	void GenerateOutput();
 	void LoadData();
 	void UnloadData();
+	
+	// Map of textures loaded
+	std::unordered_map<std::string, SDL_Texture*> mTextures;
+
+	// All the actors in the game
+	std::vector<class Actor*> mActors;
+	// Any pending actors
+	std::vector<class Actor*> mPendingActors;
+
+	// All the sprite components drawn
+	std::vector<class SpriteComponent*> mSprites;
 
 	SDL_Window* mWindow;
 	SDL_Renderer* mRenderer;
-	
 	Uint32 mTicksCount;
 	bool mIsRunning;
+	// Track if we're updating actors right now
 	bool mUpdatingActors;
 
-	// containers for stuff
-	std::unordered_map<std::string, SDL_Texture*> mTextures;
-	std::vector<class Actor*>			mActors;
-	std::vector<class Actor*>			mPendingActors;
-	std::vector<class SpriteComponent*> mSprites;
-	std::vector<class Asteroid*>		mAsteroids;
-	
-	class Ship* mShip;
-
-
+	// Game-specific
+	class Ship* mShip; // Player's ship
+	std::vector<class Asteroid*> mAsteroids;
 };

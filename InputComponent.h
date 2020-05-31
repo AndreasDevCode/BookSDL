@@ -1,12 +1,24 @@
+// ----------------------------------------------------------------
+// From Game Programming in C++ by Sanjay Madhav
+// Copyright (C) 2017 Sanjay Madhav. All rights reserved.
+// 
+// Released under the BSD License
+// See LICENSE in root directory for full details.
+// ----------------------------------------------------------------
+
 #pragma once
 #include "MoveComponent.h"
+#include <cstdint>
 
 class InputComponent : public MoveComponent
 {
 public:
-	InputComponent(class Actor* actor);
+	// Lower update order to update first
+	InputComponent(class Actor* owner);
+
 	void ProcessInput(const uint8_t* keyState) override;
-	//getters
+	
+	// Getters/setters for private variables
 	float GetMaxForward() const { return mMaxForwardSpeed; }
 	float GetMaxAngular() const { return mMaxAngularSpeed; }
 	int GetForwardKey() const { return mForwardKey; }
@@ -19,14 +31,15 @@ public:
 	void SetForwardKey(int key) { mForwardKey = key; }
 	void SetBackKey(int key) { mBackKey = key; }
 	void SetClockwiseKey(int key) { mClockwiseKey = key; }
-	void SetCounterClockwiseKey(int key) {
-		mCounterClockwiseKey = key;
-	}
+	void SetCounterClockwiseKey(int key) { mCounterClockwiseKey = key; }
 private:
+	// The maximum forward/angular speeds
 	float mMaxForwardSpeed;
 	float mMaxAngularSpeed;
+	// Keys for forward/back movement
 	int mForwardKey;
 	int mBackKey;
+	// Keys for angular movement
 	int mClockwiseKey;
 	int mCounterClockwiseKey;
 };

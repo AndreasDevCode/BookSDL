@@ -14,16 +14,16 @@ Asteroid::Asteroid(Game* game)
 	SetRotation(Random::GetFloatRange(0.0f, Math::TwoPi));
 	//create sprite from png
 	SpriteComponent* sc = new SpriteComponent(this);
-	sc->SetTExture(game->GetTexture("Assets/Asteroid.png"));
+	sc->SetTexture(game->GetTexture("Assets/Asteroid.png"));
 
 	// movement
 	MoveComponent* mc = new MoveComponent(this);
 	mc->SetForwardSpeed(150.0f);
 	mCircle = new CircleComponent(this);
 	mCircle->SetRadius(40.0f);
-	game->AddAsteroids(this);
+	game->AddAsteroid(this);
 }
 Asteroid::~Asteroid()
 {
-	GetGame()->RemoveAsteroids(this);
+	GetGame()->RemoveAsteroid(this);
 }

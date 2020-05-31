@@ -11,7 +11,7 @@ Laser::Laser(Game* game)
 {
 	// create sprite for laser
 	SpriteComponent* sp = new SpriteComponent(this);
-	sp->SetTExture(game->GetTexture("Assets/Laser.png"));
+	sp->SetTexture(game->GetTexture("Assets/Laser.png"));
 
 	// Make a movecomponent
 	MoveComponent* mc = new MoveComponent(this);

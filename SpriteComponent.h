@@ -1,24 +1,30 @@
+// ----------------------------------------------------------------
+// From Game Programming in C++ by Sanjay Madhav
+// Copyright (C) 2017 Sanjay Madhav. All rights reserved.
+// 
+// Released under the BSD License
+// See LICENSE in root directory for full details.
+// ----------------------------------------------------------------
+
 #pragma once
 #include "Component.h"
 #include "SDL.h"
-
 class SpriteComponent : public Component
 {
 public:
-	SpriteComponent(class Actor* actor, int updateOrder = 100);
+	// (Lower draw order corresponds with further back)
+	SpriteComponent(class Actor* owner, int drawOrder = 100);
 	~SpriteComponent();
 
 	virtual void Draw(SDL_Renderer* renderer);
-	virtual void SetTExture(SDL_Texture* texture);
+	virtual void SetTexture(SDL_Texture* texture);
 
 	int GetDrawOrder() const { return mDrawOrder; }
 	int GetTexHeight() const { return mTexHeight; }
 	int GetTexWidth() const { return mTexWidth; }
-private:
+protected:
 	SDL_Texture* mTexture;
 	int mDrawOrder;
 	int mTexWidth;
 	int mTexHeight;
 };
-
-

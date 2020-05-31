@@ -37,7 +37,7 @@ void SpriteComponent::Draw(SDL_Renderer* renderer)
 	}
 }
 
-void SpriteComponent::SetTExture(SDL_Texture* texture)
+void SpriteComponent::SetTexture(SDL_Texture* texture)
 {
 	mTexture = texture;
 	// setting width and height

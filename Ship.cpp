@@ -10,7 +10,7 @@ Ship::Ship(Game* game)
 {
 	// creating the spritecomponent
 	SpriteComponent* sc = new SpriteComponent(this, 150);
-	sc->SetTExture(game->GetTexture("Assets/Ship.png"));
+	sc->SetTexture(game->GetTexture("Assets/Ship.png"));
 
 	//create a sprite for the texture
 	InputComponent* ic = new InputComponent(this);

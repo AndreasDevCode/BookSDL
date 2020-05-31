@@ -18,6 +18,7 @@ Game::Game()
 
 bool Game::Initialize()
 {
+
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
 	{
 		SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
@@ -215,12 +216,12 @@ SDL_Texture* Game::GetTexture(const std::string& fileName)
 	return tex;
 }
 
-void Game::AddAsteroids(Asteroid* ast)
+void Game::AddAsteroid(Asteroid* ast)
 {
 	mAsteroids.emplace_back(ast);
 }
 
-void Game::RemoveAsteroids(Asteroid* ast)
+void Game::RemoveAsteroid(Asteroid* ast)
 {
 	auto iter = std::find(mAsteroids.begin(),
 		mAsteroids.end(), ast);

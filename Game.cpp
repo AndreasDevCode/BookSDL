@@ -154,6 +154,7 @@ void Game::GenerateOutput()
 
 void Game::LoadData()
 {
+	/*
 	// Create player's ship
 	mShip = new Ship(this);
 	mShip->SetPosition(Vector2(512.0f, 384.0f));
@@ -165,6 +166,7 @@ void Game::LoadData()
 	{
 		new Asteroid(this);
 	}
+	*/
 }
 
 void Game::UnloadData()

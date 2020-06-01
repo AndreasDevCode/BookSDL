@@ -54,6 +54,12 @@
     <ClCompile Include="Asteroid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AIComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AIState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -90,6 +96,12 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="Asteroid.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AIComponent.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AIState.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
